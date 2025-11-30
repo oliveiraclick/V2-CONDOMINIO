@@ -1,3 +1,4 @@
+
 {
   "name": "livin-app",
   "private": true,
@@ -20,5 +21,8 @@
     "@vitejs/plugin-react": "^4.2.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.6"
+    // REMOVIDO: "tailwindcss": "^3.4.1",
+    // REMOVIDO: "postcss": "^8.4.35",
+    // REMOVIDO: "autoprefixer": "^10.4.18"
   }
 }
