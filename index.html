@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>LIVIN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Nunito', 'sans-serif'],
+            },
+            colors: {
+              primary: {
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                400: '#a78bfa',
+                500: '#8b5cf6', // Violet
+                600: '#7c3aed',
+                900: '#4c1d95',
+              },
+              secondary: {
+                500: '#d946ef', // Fuchsia
+                600: '#c026d3',
+              },
+              accent: {
+                500: '#f97316', // Orange
+              }
+            },
+            boxShadow: {
+              'glow': '0 0 20px -5px rgba(139, 92, 246, 0.5)',
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.10)',
+              'soft': '0 10px 40px -10px rgba(0,0,0,0.08)'
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+              'fade-in': 'fadeIn 0.5s ease-out',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(100%)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      body {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        -webkit-tap-highlight-color: transparent;
+        background-color: #f8fafc;
+      }
+      
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #7c3aed 0%, #c026d3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .gradient-bg {
+        background: linear-gradient(135deg, #7c3aed 0%, #c026d3 100%);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6"
+  }
+}
+</script>
+</head>
+  <body class="text-slate-800 antialiased selection:bg-fuchsia-100 selection:text-fuchsia-900">
+    <div id="root"></div>
+  </body>
+</html>
