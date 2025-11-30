@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MOCK_PROVIDERS } from '../types';
-import { ArrowLeft, Search, Star, Filter } from 'lucide-react';
+import { ArrowLeft, Search, Star } from 'lucide-react';
 
 export const CategoryFeed: React.FC = () => {
   const { type } = useParams<{ type: string }>();

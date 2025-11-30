@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Plus, Package, Wrench, MoreVertical, Edit2, Trash2, Eye, EyeOff } from 'lucide-react';
+import { ArrowLeft, Plus, Package, Wrench, MoreVertical, Edit2, Eye, EyeOff } from 'lucide-react';
 import { MOCK_PROVIDERS, Offer } from '../types';
 
 export const ProviderStore: React.FC = () => {
   const navigate = useNavigate();
   // Mocking data from the first provider
-  const [offers, setOffers] = useState<Offer[]>(MOCK_PROVIDERS[0].offers || []);
+  const [offers] = useState<Offer[]>(MOCK_PROVIDERS[0].offers || []); // `setOffers` removed as per TS6133
   const [activeTab, setActiveTab] = useState<'product' | 'service'>('service'); // Default changed to service
 
   const handleBack = () => {

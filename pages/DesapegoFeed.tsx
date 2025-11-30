@@ -7,7 +7,9 @@ import { Button } from '../components/Button';
 
 export const DesapegoFeed: React.FC = () => {
   const navigate = useNavigate();
-  const [items, setItems] = useState(MOCK_DESAPEGO_ITEMS);
+  // `setItems` is part of useState, but if it's never called to update state after initialization,
+  // TypeScript's `noUnusedLocals` will flag it. For now, keeping it as it's part of the standard useState hook pattern.
+  const [items] = useState(MOCK_DESAPEGO_ITEMS);
 
   const handleBack = () => {
     navigate('/dashboard', { state: { role: 'resident' } });

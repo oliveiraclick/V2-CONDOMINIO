@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Clock, MapPin, Package, Phone, X } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Clock, MapPin, Package } from 'lucide-react';
 import { MOCK_PROVIDERS, Order, OrderStatus } from '../types';
 
 export const ProviderOrders: React.FC = () => {

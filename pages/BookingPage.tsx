@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Home, Calendar, Clock, MapPin, CheckCircle, ChevronRight, X, AlertCircle, Package, Plus, Minus } from 'lucide-react';
-import { MOCK_PROVIDERS, Offer } from '../types';
+import { MOCK_PROVIDERS } from '../types';
 import { Button } from '../components/Button';
 
 export const BookingPage: React.FC = () => {

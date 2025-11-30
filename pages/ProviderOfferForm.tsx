@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Upload, Package, Wrench, Check, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, Package, Wrench, Check, Image as ImageIcon } from 'lucide-react';
 import { Input } from '../components/Input';
 import { Button } from '../components/Button';
 

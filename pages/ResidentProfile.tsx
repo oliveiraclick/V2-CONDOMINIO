@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, User, Settings, LogOut, Package, Heart, Clock, QrCode, ChevronRight, Shield, CreditCard } from 'lucide-react';
+import { ArrowLeft, User, Settings, LogOut, Package, Heart, QrCode, ChevronRight, Shield, CreditCard } from 'lucide-react';
 
 export const ResidentProfile: React.FC = () => {
   const navigate = useNavigate();

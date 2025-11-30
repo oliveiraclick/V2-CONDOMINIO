@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { MOCK_PROVIDERS } from '../types';
 import { LogOut, Eye, Plus, ArrowUpRight, Calendar, Box, Settings } from 'lucide-react';
-import { Button } from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 
 interface ProviderDashboardProps {

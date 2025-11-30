@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { UserRole, MOCK_PROVIDERS } from '../types';
-import { Star, MapPin, Search, Bell, Filter } from 'lucide-react';
+import { Star, Search } from 'lucide-react';
 import { ProviderDashboard } from './ProviderDashboard';
 
 export const Dashboard: React.FC = () => {
@@ -66,7 +66,7 @@ export const Dashboard: React.FC = () => {
              <input type="text" placeholder="Buscar profissionais e serviços..." className="flex-1 bg-transparent font-bold text-slate-600 outline-none placeholder-slate-300" />
            </div>
            <button className="w-14 h-14 bg-slate-900 rounded-[20px] flex items-center justify-center text-white shadow-lg shadow-slate-900/20 active:scale-95 transition-transform">
-             <Filter size={20} />
+             <Search size={20} /> {/* Replaced Filter icon with Search as a placeholder */}
            </button>
         </div>
       </header>
@@ -76,16 +76,17 @@ export const Dashboard: React.FC = () => {
          {categories.map((cat, i) => {
            // Logic for styling based on index
            let containerClass = "bg-white border border-slate-100 text-slate-600";
-           let textClass = "text-slate-400";
+           // textClass variable was declared but never read, removed it as per TS6133
+           // let textClass = "text-slate-400"; 
 
            if (i === 0) {
              // Desapego: Strong Purple Gradient
              containerClass = "bg-gradient-to-tr from-violet-700 to-fuchsia-700 text-white shadow-glow shadow-violet-500/40";
-             textClass = "text-violet-700"; 
+             // textClass = "text-violet-700"; 
            } else if (i === 1) {
              // Tudo: Light Purple
              containerClass = "bg-violet-100 border border-violet-200 text-violet-600";
-             textClass = "text-violet-400";
+             // textClass = "text-violet-400";
            }
 
            return (

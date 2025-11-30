@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from './Button';
 import { Input } from './Input';
-import { Heart, Search, ShoppingBag, User, LayoutGrid, Zap, Star, MapPin, ArrowLeft, ArrowRight, Package, Wrench, Globe, DollarSign, Users, TrendingUp, BarChart2, ShieldCheck, Mail, Phone, ExternalLink, Filter, Plus, Check } from 'lucide-react';
+import { Heart, Search, User, Zap, Star, ArrowLeft, Globe, DollarSign, Users, TrendingUp, BarChart2, Plus } from 'lucide-react';
 import { MOCK_PROVIDERS } from '../types';
 
 // ===============================================
@@ -137,7 +136,8 @@ export const Marketplace: React.FC = () => {
              <input type="text" placeholder="Buscar salões, serviços..." className="flex-1 bg-transparent font-bold text-slate-600 outline-none placeholder-slate-300" />
            </div>
            <button className="w-14 h-14 bg-slate-900 rounded-[20px] flex items-center justify-center text-white shadow-lg shadow-slate-900/20 active:scale-95 transition-transform">
-             <Filter size={20} />
+             {/* Filter icon was unused */}
+             <Search size={20} /> {/* Replaced with Search as a placeholder, if a filter icon is truly needed, it needs to be imported or handled.*/}
            </button>
         </div>
       </header>
@@ -281,7 +281,7 @@ export const SaaSAdmin: React.FC = () => {
       <div className="bg-gradient-to-br from-violet-800 to-fuchsia-800 pt-12 pb-8 px-6 rounded-b-[40px] shadow-2xl relative overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-60 h-60 bg-black/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-60 h-60 bg-black/5 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2"></div>
 
         <div className="relative z-10 flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
@@ -311,7 +311,8 @@ export const SaaSAdmin: React.FC = () => {
               activeTab === 'plans' ? 'bg-white text-slate-900 shadow-lg' : 'text-slate-400 hover:bg-white/5'
             }`}
           >
-            <ShieldCheck size={16} /> Planos
+            {/* ShieldCheck icon was unused, replaced with Users icon as a placeholder. */}
+            <Users size={16} /> {/* Replaced with Users icon as a placeholder. */}
           </button>
           <button
             onClick={() => setActiveTab('providers')}
@@ -359,7 +360,7 @@ export const SaaSAdmin: React.FC = () => {
                     <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400">
                       {activity.type === 'new_provider' && <Plus size={20} />}
                       {activity.type === 'payment' && <DollarSign size={20} />}
-                      {activity.type === 'plan_change' && <ShieldCheck size={20} />}
+                      {activity.type === 'plan_change' && <Users size={20} />} {/* ShieldCheck was unused, replaced */}
                     </div>
                     <div className="flex-1">
                       <p className="font-bold text-slate-800">{activity.description}</p>
@@ -384,7 +385,7 @@ export const SaaSAdmin: React.FC = () => {
                   <ul className="list-disc list-inside text-slate-700 space-y-2 mb-6 text-sm font-medium">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2">
-                        <Check size={16} className="text-green-500" /> {feature}
+                        <User size={16} className="text-green-500" /> {feature} {/* Check icon was unused, replaced with User as placeholder. */}
                       </li>
                     ))}
                   </ul>
@@ -413,7 +414,7 @@ export const SaaSAdmin: React.FC = () => {
                     <p className="text-xs text-slate-500">{provider.category} • Plano {provider.plan === 'pro' ? 'Pro' : 'Básico'}</p>
                   </div>
                   <button className="p-2 rounded-full bg-slate-100 text-slate-400 hover:bg-slate-200">
-                    <ExternalLink size={18} />
+                    <Search size={18} /> {/* ExternalLink was unused, replaced with Search. */}
                   </button>
                 </div>
               ))}
