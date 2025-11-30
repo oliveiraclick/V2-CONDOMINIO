@@ -23,6 +23,7 @@ import { DesapegoFeed } from './pages/DesapegoFeed';
 import { DesapegoForm } from './pages/DesapegoForm';
 import { CategoryFeed } from './pages/CategoryFeed';
 import { PlaceholderPage } from './pages/PlaceholderPage';
+import { ResidentProfile } from './pages/ResidentProfile';
 
 // Component to handle forced redirect logic
 const AppContent: React.FC = () => {
@@ -74,10 +75,12 @@ const AppContent: React.FC = () => {
           <Route path="/register/basic" element={<RegisterBasic />} />
           <Route path="/register/provider-complete" element={<RegisterProviderComplete />} />
           
+          {/* Profiles and Misc */}
+          <Route path="/profile" element={<ResidentProfile />} />
+          
           {/* Placeholder Routes for BottomNav */}
           <Route path="/search" element={<PlaceholderPage title="Busca" icon="🔍" />} />
-          <Route path="/orders" element={<PlaceholderPage title="Pedidos" icon="📦" />} />
-          <Route path="/profile" element={<PlaceholderPage title="Perfil" icon="👤" />} />
+          <Route path="/orders" element={<PlaceholderPage title="Meus Pedidos" icon="📦" />} />
           
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

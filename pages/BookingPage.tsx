@@ -48,7 +48,7 @@ export const BookingPage: React.FC = () => {
   // Upsell Logic
   const updateUpsellQty = (id: string, delta: number) => {
     setUpsellCart(prev => {
-      const current = prev[id] || 0;
+      const current = (prev[id] as number) || 0;
       const newQty = Math.max(0, current + delta);
       const newCart = { ...prev, [id]: newQty };
       if (newQty === 0) delete newCart[id];
@@ -61,7 +61,7 @@ export const BookingPage: React.FC = () => {
     return acc + (product ? product.price * qty : 0);
   }, 0);
 
-  const finalTotal = service.price + upsellTotal;
+  const finalTotal = (service.price || 0) + upsellTotal;
 
   const days = Array.from({ length: 30 }, (_, i) => {
     const d = new Date();
@@ -249,7 +249,7 @@ export const BookingPage: React.FC = () => {
          <div className="flex justify-between items-center mb-4 px-2">
             <div>
                <p className="text-xs text-slate-400 font-bold uppercase">Total estimado</p>
-               <p className="text-2xl font-black text-slate-900">R$ {service.price.toFixed(2)}</p>
+               <p className="text-2xl font-black text-slate-900">R$ {finalTotal.toFixed(2)}</p>
             </div>
             <div className="text-right">
                 <p className="text-xs text-slate-400 font-bold uppercase">Data</p>

@@ -12,8 +12,10 @@ export const Dashboard: React.FC = () => {
   
   const [activeTab, setActiveTab] = useState<'product' | 'service'>('service'); // Default changed to service based on preference
 
-  // Redireciona para '/' (Splash) para reiniciar o fluxo
+  // Redireciona para Splash se for provider logout, mas para Perfil se for morador
   const handleLogout = () => navigate('/');
+  const handleProfileClick = () => navigate('/profile', { state: { role: 'resident' } });
+
   const isResident = role === 'resident';
 
   if (!isResident) {
@@ -48,11 +50,11 @@ export const Dashboard: React.FC = () => {
              </h1>
           </div>
           <div 
-            onClick={handleLogout}
+            onClick={handleProfileClick}
             className="w-12 h-12 rounded-2xl bg-white shadow-glass border border-white flex items-center justify-center relative cursor-pointer active:scale-95 transition-transform hover:shadow-lg"
-            title="Sair / Voltar ao Início"
+            title="Meu Perfil"
           >
-             <img src="https://i.pravatar.cc/100?img=33" alt="Profile" className="w-full h-full rounded-2xl object-cover opacity-90" />
+             <img src="https://i.pravatar.cc/100?img=11" alt="Profile" className="w-full h-full rounded-2xl object-cover opacity-90" />
              <div className="absolute top-0 right-0 w-3 h-3 bg-fuchsia-500 rounded-full border-2 border-white"></div>
           </div>
         </div>
