@@ -4,6 +4,7 @@ import { HashRouter, Routes, Route, Navigate, useNavigate, useLocation } from 'r
 import { RegistrationProvider } from './context/RegistrationContext';
 import { CartProvider } from './context/CartContext';
 import { BottomNav } from './components/BottomNav';
+// Removed unused imports for Button, LayoutGrid, ShoppingBag, Zap, User, ShieldCheck as LandingPage is removed
 
 // Pages
 import { Splash } from './pages/Splash';
@@ -12,8 +13,7 @@ import { RegisterType } from './pages/RegisterType';
 import { RegisterBasic } from './pages/RegisterBasic';
 import { RegisterProviderComplete } from './pages/RegisterProviderComplete';
 import { Dashboard } from './pages/Dashboard';
-import { ProviderProfile } from './pages/ProviderProfile';
-import { ProviderDashboard } from './pages/ProviderDashboard'; 
+import { ProviderProfile } from './pages/ProviderProfile'; 
 import { ProviderOfferForm } from './pages/ProviderOfferForm';
 import { ProviderSchedule } from './pages/ProviderSchedule';
 import { ProviderOrders } from './pages/ProviderOrders'; 
@@ -24,6 +24,9 @@ import { DesapegoForm } from './pages/DesapegoForm';
 import { CategoryFeed } from './pages/CategoryFeed';
 import { PlaceholderPage } from './pages/PlaceholderPage';
 import { ResidentProfile } from './pages/ResidentProfile';
+
+// SaaS Views - NEWLY IMPORTED (kept as they are new features)
+import { SaaS_LP, Marketplace, SaaSAdmin } from './components/SaaSViews';
 
 // Component to handle forced redirect logic
 const AppContent: React.FC = () => {
@@ -46,6 +49,7 @@ const AppContent: React.FC = () => {
       <div className="font-sans antialiased text-slate-800 min-h-screen bg-[#f8fafc] pb-[100px] relative viewport-fit-cover">
         <Routes>
           <Route path="/" element={<Splash />} />
+          {/* Removed: <Route path="/landing" element={<LandingPage />} /> */}
           <Route path="/login" element={<Login />} />
           
           {/* Dashboard handles both Resident and Provider logic */}
@@ -81,8 +85,14 @@ const AppContent: React.FC = () => {
           {/* Placeholder Routes for BottomNav */}
           <Route path="/search" element={<PlaceholderPage title="Busca" icon="🔍" />} />
           <Route path="/orders" element={<PlaceholderPage title="Meus Pedidos" icon="📦" />} />
+
+          {/* SaaS Views - NEW ROUTES (kept as features) */}
+          <Route path="/saas-lp" element={<SaaS_LP />} />
+          <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/saas-admin" element={<SaaSAdmin />} />
           
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* Fallback route - redirect to Login page directly */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
         
         <BottomNav />

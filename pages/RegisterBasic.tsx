@@ -11,7 +11,12 @@ export const RegisterBasic: React.FC = () => {
   const { data, updateBasicInfo } = useRegistration();
 
   if (!data.role) {
-    React.useEffect(() => navigate('/register/type'), [navigate]);
+    // Fix: Ensure the useEffect callback does not return an awaitable value.
+    // The `navigate` function is synchronous, but explicitly using `void`
+    // can prevent potential linter misinterpretations.
+    React.useEffect(() => {
+      void navigate('/register/type');
+    }, [navigate]);
     return null;
   }
 

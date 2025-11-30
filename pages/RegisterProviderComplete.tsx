@@ -14,7 +14,12 @@ export const RegisterProviderComplete: React.FC = () => {
   const [tempCategories, setTempCategories] = useState<string[]>([]);
 
   if (!data.role || data.role !== 'provider') {
-    React.useEffect(() => navigate('/register/type'), [navigate]);
+    // Fix: Ensure the useEffect callback does not return an awaitable value.
+    // The `navigate` function is synchronous, but explicitly using `void`
+    // can prevent potential linter misinterpretations.
+    React.useEffect(() => {
+      void navigate('/register/type');
+    }, [navigate]);
     return null;
   }
 

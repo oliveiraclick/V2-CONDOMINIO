@@ -6,9 +6,9 @@ export const Splash: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Redirects to login after 2 seconds for faster testing flow
+    // Redirects to the Login page after 2 seconds, restoring original flow
     const timer = setTimeout(() => {
-      navigate('/login');
+      navigate('/login'); // Redirect directly to Login
     }, 2000);
     return () => clearTimeout(timer);
   }, [navigate]);
