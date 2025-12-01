@@ -1,4 +1,5 @@
 
+
 export type UserRole = 'resident' | 'provider' | null;
 export type ProviderType = 'service' | 'product' | null;
 export type PlanType = 'basic' | 'pro';

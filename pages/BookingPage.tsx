@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Home, Calendar, Clock, MapPin, CheckCircle, ChevronRight, X, AlertCircle, Package, Plus, Minus } from 'lucide-react';
-import { MOCK_PROVIDERS } from '../types';
+import { Calendar, Clock, MapPin, CheckCircle, ChevronRight, X, AlertCircle } from 'lucide-react';
+import { MOCK_PROVIDERS, type Offer } from '../types'; // Adjusted import for Offer type
 import { Button } from '../components/Button';
 
 export const BookingPage: React.FC = () => {
@@ -55,12 +55,12 @@ export const BookingPage: React.FC = () => {
     });
   };
 
-  const upsellTotal = Object.entries(upsellCart).reduce((acc: number, [id, qty]) => {
+  const upsellTotal = Object.entries(upsellCart).reduce((acc, [id, qty]) => {
     const product = availableProducts.find(p => p.id === id);
     return acc + (product ? product.price * qty : 0);
   }, 0);
-
-  const finalTotal = (service.price || 0) + upsellTotal;
+  
+  const finalTotal = (service?.price || 0) + upsellTotal;
 
   const days = Array.from({ length: 30 }, (_, i) => {
     const d = new Date();
@@ -104,7 +104,8 @@ export const BookingPage: React.FC = () => {
          </p>
          {upsellTotal > 0 && (
            <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 text-sm font-bold border border-white/20">
-             + {Object.values(upsellCart).reduce((a: number, b: number) => a + b, 0)} produtos adicionados ao pedido.
+             {/* FIX: Removed explicit types from reduce function to allow for correct type inference. */}
+             + {Object.values(upsellCart).reduce((a, b) => a + b, 0)} produtos adicionados ao pedido.
            </div>
          )}
       </div>
@@ -118,7 +119,7 @@ export const BookingPage: React.FC = () => {
         
         <div className="relative z-10 flex items-center justify-between mb-8">
            <button onClick={handleHome} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all">
-             <Home size={20} />
+             <Calendar size={20} /> 
            </button>
            <h1 className="text-xl font-bold text-white">Agendar Serviço</h1>
            <button onClick={handleClose} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all">
@@ -322,7 +323,7 @@ export const BookingPage: React.FC = () => {
                             {product.imageUrl ? (
                                <img src={product.imageUrl} className="w-full h-full object-cover" alt="" />
                             ) : (
-                               <div className="w-full h-full flex items-center justify-center text-slate-300"><Package size={20} /></div>
+                               <div className="w-full h-full flex items-center justify-center text-slate-300">🛍️</div>
                             )}
                          </div>
                          <div className="flex-1">
@@ -332,11 +333,11 @@ export const BookingPage: React.FC = () => {
                          <div className="flex items-center gap-2 bg-white rounded-xl p-1 shadow-sm">
                             {qty > 0 && (
                               <>
-                                <button onClick={() => updateUpsellQty(product.id, -1)} className="w-7 h-7 flex items-center justify-center text-slate-400 hover:bg-slate-100 rounded-lg"><Minus size={14} /></button>
+                                <button onClick={() => updateUpsellQty(product.id, -1)} className="w-7 h-7 flex items-center justify-center text-slate-400 hover:bg-slate-100 rounded-lg">➖</button>
                                 <span className="font-bold text-sm w-4 text-center">{qty}</span>
                               </>
                             )}
-                            <button onClick={() => updateUpsellQty(product.id, 1)} className="w-7 h-7 flex items-center justify-center bg-violet-600 text-white rounded-lg active:scale-90"><Plus size={14} /></button>
+                            <button onClick={() => updateUpsellQty(product.id, 1)} className="w-7 h-7 flex items-center justify-center bg-violet-600 text-white rounded-lg active:scale-90">➕</button>
                          </div>
                       </div>
                     );

@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Sun, Moon, Sunrise, MoreHorizontal, Info, Check, MessageCircle, CalendarDays, X, Clock, Plus, User, MapPin } from 'lucide-react';
+import { ArrowLeft, Sunrise, Sun, Moon, MoreHorizontal, Info, Check, MessageCircle, CalendarDays, X, Clock, Plus, User, MapPin } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 

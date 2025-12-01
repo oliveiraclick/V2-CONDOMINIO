@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { MOCK_PROVIDERS, Offer } from '../types';
@@ -294,7 +295,7 @@ export const ProviderProfile: React.FC = () => {
                         <div className="flex gap-3 items-center">
                            <span className="w-8 h-8 rounded-xl bg-white flex items-center justify-center text-xs font-black text-slate-800 shadow-sm">{item.quantity}x</span>
                            <span className="font-bold text-slate-700">{item.title}</span>
-                        </div>
+                         </div>
                         <span className="font-black text-slate-900">R$ {(item.price * item.quantity).toFixed(2)}</span>
                      </div>
                   ))}

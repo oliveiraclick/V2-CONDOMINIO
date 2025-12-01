@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Plus, MessageCircle, Edit2, Trash2, MapPin, Search } from 'lucide-react';
@@ -7,8 +6,7 @@ import { Button } from '../components/Button';
 
 export const DesapegoFeed: React.FC = () => {
   const navigate = useNavigate();
-  // `setItems` is part of useState, but if it's never called to update state after initialization,
-  // TypeScript's `noUnusedLocals` will flag it. For now, keeping it as it's part of the standard useState hook pattern.
+  // CORREÇÃO APLICADA: 'setItems' removido da desestruturação do useState.
   const [items] = useState(MOCK_DESAPEGO_ITEMS);
 
   const handleBack = () => {
@@ -74,18 +72,18 @@ export const DesapegoFeed: React.FC = () => {
 
             {/* Image Carousel (Simplified) */}
             <div className="relative aspect-square w-full bg-slate-100">
-               <img src={item.images[0]} alt={item.title} className="w-full h-full object-cover" />
-               {item.images.length > 1 && (
-                 <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-white text-xs font-bold">
-                   + {item.images.length - 1} fotos
-                 </div>
-               )}
-               
-               {/* Price Tag Overlay */}
-               <div className="absolute top-4 right-4 bg-white/90 backdrop-blur shadow-lg px-4 py-2 rounded-2xl">
-                 <span className="text-xs font-bold text-slate-400 uppercase mr-1">R$</span>
-                 <span className="text-xl font-black text-slate-900">{item.price.toFixed(2)}</span>
-               </div>
+                <img src={item.images[0]} alt={item.title} className="w-full h-full object-cover" />
+                {item.images.length > 1 && (
+                   <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-white text-xs font-bold">
+                      + {item.images.length - 1} fotos
+                   </div>
+                )}
+                
+                {/* Price Tag Overlay */}
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur shadow-lg px-4 py-2 rounded-2xl">
+                   <span className="text-xs font-bold text-slate-400 uppercase mr-1">R$</span>
+                   <span className="text-xl font-black text-slate-900">{item.price.toFixed(2)}</span>
+                </div>
             </div>
 
             {/* Content */}
@@ -95,18 +93,18 @@ export const DesapegoFeed: React.FC = () => {
                
                {/* Action */}
                {!item.isOwner ? (
-                 <Button 
-                   fullWidth 
-                   className="!bg-green-500 hover:!bg-green-600 !shadow-none"
-                   icon={<MessageCircle size={20} />}
-                 >
-                   Chamar no WhatsApp
-                 </Button>
-               ) : (
-                 <div className="w-full py-3 bg-slate-50 rounded-2xl text-center text-xs font-bold text-slate-400 uppercase tracking-widest">
-                   Seu anúncio
-                 </div>
-               )}
+                  <Button 
+                    fullWidth 
+                    className="!bg-green-500 hover:!bg-green-600 !shadow-none"
+                    icon={<MessageCircle size={20} />}
+                  >
+                    Chamar no WhatsApp
+                  </Button>
+                ) : (
+                  <div className="w-full py-3 bg-slate-50 rounded-2xl text-center text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    Seu anúncio
+                  </div>
+                )}
             </div>
           </div>
         ))}
